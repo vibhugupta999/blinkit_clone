@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "457582385653",
+    "project_id": "grocery-app-34eeb",
+    "storage_bucket": "grocery-app-34eeb.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:457582385653:android:d24d18de7942bd4e93e8bc",
+        "android_client_info": {
+          "package_name": "com.example.blinkit_clone"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "457582385653-eql7cdel2fptkmbt9rvaoenvcaf2b33b.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.blinkit_clone",
+            "certificate_hash": "dd52bb6ed4f6d1ce536994890bac1620f3fd9edc"
+          }
+        },
+        {
+          "client_id": "457582385653-jnpjnvir5picvr7tu4nkvd5iv34dkl4s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAemgvasU0UDyaVA35RcVXOrhvaDkHIXPc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "457582385653-jnpjnvir5picvr7tu4nkvd5iv34dkl4s.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "457582385653-hb2o65r9tsgfpechh1r8hrpvv026pni1.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.blinkitClone"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
