@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:blinkit_clone/data/User%20Data/user.dart';
 import 'package:blinkit_clone/data/User%20Data/user_data.dart';
 import 'package:blinkit_clone/data/data_sources/data_sources.dart';
+import 'package:blinkit_clone/presentation/bloc/address%20bloc/address_bloc.dart';
 import 'package:blinkit_clone/presentation/bloc/detail%20page%20bloc/detail_page_bloc.dart';
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
@@ -25,6 +26,7 @@ class CartBloc extends Bloc<CartEvent, CartState> {
     Users.listenToAuthStateChanges();
     await UserData.getCartItems();
     emit(CartInitial());
+    selectAddressBloc.add(GetAddressesEvent());
   }
 
   Future<void> addtoCartEvent(

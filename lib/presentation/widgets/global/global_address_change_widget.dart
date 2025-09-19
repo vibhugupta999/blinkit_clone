@@ -1,5 +1,6 @@
 import 'package:blinkit_clone/data/constants/ui_consts.dart';
 import 'package:blinkit_clone/data/data_sources/data_sources.dart';
+import 'package:blinkit_clone/data/models/user_address.dart';
 import 'package:blinkit_clone/presentation/bloc/address%20bloc/address_bloc.dart';
 import 'package:blinkit_clone/presentation/widgets/show_address_list_bottom_sheet.dart';
 import 'package:flutter/material.dart';
@@ -43,7 +44,7 @@ class _GlobalAddressChangeWidgetState extends State<GlobalAddressChangeWidget>
       child: BlocBuilder<AddressBloc, AddressState>(
         bloc: selectAddressBloc,
         builder: (context, state) {
-          if (state.runtimeType == SelectedAddressState) {
+          if (state.runtimeType == SelectedAddressState && userAddresses.isNotEmpty) {
             final st = state as SelectedAddressState;
             return Row(
               children: [
