@@ -11,7 +11,7 @@ class RetrieveData {
     required String docName,
   }) async {
     final List<SuperCategory> superCategoryList = [];
-    final docRef = _firestore.collection("Super Categories").doc(docName);
+    final docRef = _firestore.collection("SuperCategories").doc(docName);
     final tempsnap = await docRef.get();
     List<dynamic> supercats = tempsnap.data()?["superCategoryList"] ?? "";
     for (int i = 0; i < supercats.length; i++) {
