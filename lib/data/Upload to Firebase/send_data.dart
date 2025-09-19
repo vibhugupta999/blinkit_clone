@@ -178,24 +178,24 @@ class SendData {
     }
     return;
 
-    _firestore
-        //Super categories collection(App categories)
-        .collection("Super Categories")
-        //Next Document
-        .doc("Beauty")
-        //next collection (super categories)
-        .collection("Snacks & Drinks")
-        //next document (categories)
-        .doc("Sweets & Chocolates")
-        //sub categories collection
-        .collection("Sub Categories")
-        //sub categories document
-        .doc("Syrups")
-        //Product collection
-        .collection("Products")
-        //productList document
-        .doc("productList")
-        //productList Array of Map
-        .update({"productList": syrupsList});
+    // _firestore
+    //     //Super categories collection(App categories)
+    //     .collection("Super Categories")
+    //     //Next Document
+    //     .doc("Beauty")
+    //     //next collection (super categories)
+    //     .collection("Snacks & Drinks")
+    //     //next document (categories)
+    //     .doc("Sweets & Chocolates")
+    //     //sub categories collection
+    //     .collection("Sub Categories")
+    //     //sub categories document
+    //     .doc("Syrups")
+    //     //Product collection
+    //     .collection("Products")
+    //     //productList document
+    //     .doc("productList")
+    //     //productList Array of Map
+    //     .update({"productList": syrupsList});
   }
 }
