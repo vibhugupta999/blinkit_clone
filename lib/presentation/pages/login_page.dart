@@ -1,7 +1,6 @@
 // ignore_for_file: type_literal_in_constant_pattern
 
 import 'package:blinkit_clone/data/constants/ui_consts.dart';
-import 'package:blinkit_clone/data/data_sources/data_sources.dart';
 import 'package:blinkit_clone/presentation/bloc/login%20bloc/login_page_bloc.dart';
 import 'package:blinkit_clone/presentation/widgets/blinkit_logo.dart';
 import 'package:blinkit_clone/presentation/widgets/floating_skip_login.dart';
@@ -28,7 +27,6 @@ class _LoginPageState extends State<LoginPage> {
 
   final LoginPageBloc loginPageBloc = LoginPageBloc();
   final formKey = GlobalKey<FormState>();
-  final TextEditingController textEditingController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -105,10 +103,7 @@ class _LoginPageState extends State<LoginPage> {
 
                             SizedBox(height: 10),
 
-                            TextFormFieldWidget(
-                              formKey: formKey,
-                              textEditingController: textEditingController,
-                            ),
+                            TextFormFieldWidget(formKey: formKey),
 
                             Column(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -116,9 +111,9 @@ class _LoginPageState extends State<LoginPage> {
                                 LoginPageButton(
                                   onPressed: () {
                                     if (formKey.currentState!.validate()) {
-                                      phone = textEditingController.text
-                                          .toString();
-                                      loginPageBloc.add(GoogleSignInEvent());
+                                      loginPageBloc.add(
+                                        GoogleSignInEvent(),
+                                      );
                                     }
                                   },
                                   content: "Continue",
@@ -129,8 +124,6 @@ class _LoginPageState extends State<LoginPage> {
                                 LoginPageButton(
                                   onPressed: () {
                                     if (formKey.currentState!.validate()) {
-                                      phone = textEditingController.text
-                                          .toString();
                                       loginPageBloc.add(GoogleSignInEvent());
                                     }
                                   },

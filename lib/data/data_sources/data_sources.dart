@@ -3,6 +3,7 @@ import 'package:blinkit_clone/data/models/super_category.dart';
 import 'package:blinkit_clone/presentation/bloc/address%20bloc/address_bloc.dart';
 import 'package:blinkit_clone/presentation/bloc/cart%20bloc/cart_bloc.dart';
 import 'package:blinkit_clone/presentation/bloc/detail%20page%20bloc/detail_page_bloc.dart';
+import 'package:blinkit_clone/presentation/bloc/login%20bloc/login_page_bloc.dart';
 import 'package:blinkit_clone/presentation/bloc/navigation%20bloc/navigation_bloc.dart';
 import 'package:blinkit_clone/presentation/pages/categories.dart';
 import 'package:blinkit_clone/presentation/pages/home.dart';
@@ -111,3 +112,7 @@ void clearControllers() {
 }
 
 final AddressBloc selectAddressBloc = AddressBloc();
+
+bool continueButtonEnabled = false;
+
+final LoginPageBloc continuecheckbloc = LoginPageBloc();

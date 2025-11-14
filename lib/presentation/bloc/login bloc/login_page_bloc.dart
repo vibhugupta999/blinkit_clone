@@ -10,6 +10,7 @@ class LoginPageBloc extends Bloc<LoginPageEvent, LoginPageState> {
     on<LoginPageInitialEvent>(loginPageInitialEvent);
     on<GoogleSignInEvent>(googleSignInEvent);
     on<SkipLoginEvent>(skipLoginEvent);
+    on<ContinueEnabledEvent>(continueEnabledEvent);
   }
 
   FutureOr<void> loginPageInitialEvent(
@@ -20,7 +21,6 @@ class LoginPageBloc extends Bloc<LoginPageEvent, LoginPageState> {
     final NetworkImage image = NetworkImage(
       "https://res.cloudinary.com/de8jblslu/image/upload/v1754561784/pamperItem_aiq4r0.png",
     );
-    await Future.delayed(Duration(milliseconds: 500));
     emit(LoginPageLoadedState(image: image));
   }
 
@@ -29,7 +29,6 @@ class LoginPageBloc extends Bloc<LoginPageEvent, LoginPageState> {
     Emitter<LoginPageState> emit,
   ) async {
     await AuthServices.signInWithGoogle();
-    
   }
 
   FutureOr<void> skipLoginEvent(
@@ -37,5 +36,12 @@ class LoginPageBloc extends Bloc<LoginPageEvent, LoginPageState> {
     Emitter<LoginPageState> emit,
   ) {
     emit(SkipLoginState(isLoginSkipped: true));
+  }
+
+  FutureOr<void> continueEnabledEvent(
+    ContinueEnabledEvent event,
+    Emitter<LoginPageState> emit,
+  ){
+    emit(ContinueEnabledState());
   }
 }

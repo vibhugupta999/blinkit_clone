@@ -1,14 +1,11 @@
 import 'package:blinkit_clone/data/constants/ui_consts.dart';
+import 'package:blinkit_clone/data/data_sources/data_sources.dart';
+import 'package:blinkit_clone/presentation/bloc/login%20bloc/login_page_bloc.dart';
 import 'package:flutter/material.dart';
 
 class TextFormFieldWidget extends StatelessWidget {
-  const TextFormFieldWidget({
-    super.key,
-     this.formKey,
-     this.textEditingController,
-  });
+  const TextFormFieldWidget({super.key, this.formKey});
   final GlobalKey? formKey;
-  final TextEditingController? textEditingController;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -16,13 +13,23 @@ class TextFormFieldWidget extends StatelessWidget {
       child: Form(
         key: formKey,
         child: TextFormField(
+          onChanged: (value) {
+            if (value.length == 10) {           
+              FocusScope.of(context).unfocus();
+              phone = value;
+              continueButtonEnabled = true;
+              continuecheckbloc.add(ContinueEnabledEvent());
+            }
+          },
+          autovalidateMode: AutovalidateMode.onUserInteraction,
           cursorColor: darkblack,
           cursorErrorColor: darkblack,
-          controller: textEditingController,
           validator: (value) {
             if (value == null || value.isEmpty) {
               return "Please enter mobile number";
             } else if (value.length < 10) {
+              continueButtonEnabled = false;
+              continuecheckbloc.add(ContinueEnabledEvent());
               return "Please enter 10 digit mobile number";
             }
             return null; //valid input

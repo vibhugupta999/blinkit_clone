@@ -18,3 +18,5 @@ class SkipLoginState extends LoginPageState {
 
   SkipLoginState({required this.isLoginSkipped});
 }
+
+class ContinueEnabledState extends LoginPageState {}
