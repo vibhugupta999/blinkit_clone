@@ -16,7 +16,7 @@ class TextFormFieldWidget extends StatelessWidget {
           onChanged: (value) {
             if (value.length == 10) {           
               FocusScope.of(context).unfocus();
-              phone = value;
+              phone = "+91 $value";
               continueButtonEnabled = true;
               continuecheckbloc.add(ContinueEnabledEvent());
             }

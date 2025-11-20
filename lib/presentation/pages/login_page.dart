@@ -1,9 +1,10 @@
 // ignore_for_file: type_literal_in_constant_pattern
 
-import 'package:blinkit_clone/data/constants/ui_consts.dart';
+import 'package:blinkit_clone/data/data_sources/data_sources.dart';
 import 'package:blinkit_clone/presentation/bloc/login%20bloc/login_page_bloc.dart';
 import 'package:blinkit_clone/presentation/widgets/blinkit_logo.dart';
 import 'package:blinkit_clone/presentation/widgets/floating_skip_login.dart';
+import 'package:blinkit_clone/presentation/widgets/global/global_circularprogressindiactor.dart';
 import 'package:blinkit_clone/presentation/widgets/login_page_button.dart';
 import 'package:blinkit_clone/presentation/widgets/login_page_item_row_widget.dart';
 import 'package:blinkit_clone/presentation/widgets/text_form_field.dart';
@@ -38,14 +39,7 @@ class _LoginPageState extends State<LoginPage> {
           case LoginPageLoadingState:
             return Scaffold(
               backgroundColor: Colors.white,
-              body: Center(
-                child: CircularProgressIndicator(
-                  color: loginblinkitlogobackground,
-                  strokeWidth: 5,
-                  backgroundColor: darkblack,
-                  padding: const EdgeInsets.all(20),
-                ),
-              ),
+              body: Center(child: GlobalCircularProgressIndicator()),
             );
           case LoginPageLoadedState:
             final loadedstate = state as LoginPageLoadedState;
@@ -108,15 +102,20 @@ class _LoginPageState extends State<LoginPage> {
                             Column(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                LoginPageButton(
-                                  onPressed: () {
-                                    if (formKey.currentState!.validate()) {
-                                      loginPageBloc.add(
-                                        GoogleSignInEvent(),
-                                      );
-                                    }
+                                BlocBuilder<LoginPageBloc, LoginPageState>(
+                                  bloc: continuecheckbloc,
+                                  builder: (context, state) {
+                                    return LoginPageButton(
+                                      onPressed: () {
+                                        if (formKey.currentState!.validate()) {
+                                          loginPageBloc.add(
+                                            GoogleSignInEvent(),
+                                          );
+                                        }
+                                      },
+                                      content: "Continue",
+                                    );
                                   },
-                                  content: "Continue",
                                 ),
 
                                 LoginPageORTextWidget(),
