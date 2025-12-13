@@ -17,13 +17,19 @@ import 'package:flutter/foundation.dart'
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
-      return web;
+      throw UnsupportedError(
+        'DefaultFirebaseOptions have not been configured for web - '
+        'you can reconfigure this by running the FlutterFire CLI again.',
+      );
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
         return android;
       case TargetPlatform.iOS:
-        return ios;
+        throw UnsupportedError(
+          'DefaultFirebaseOptions have not been configured for ios - '
+          'you can reconfigure this by running the FlutterFire CLI again.',
+        );
       case TargetPlatform.macOS:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for macos - '
@@ -48,30 +54,9 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyAemgvasU0UDyaVA35RcVXOrhvaDkHIXPc',
-    appId: '1:457582385653:android:d24d18de7942bd4e93e8bc',
+    appId: '1:457582385653:android:95aa2e143530536b93e8bc',
     messagingSenderId: '457582385653',
     projectId: 'grocery-app-34eeb',
     storageBucket: 'grocery-app-34eeb.firebasestorage.app',
   );
-
-  static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyCiZVPiYuZPqgaK8x_0m56yhni4JktJ0ek',
-    appId: '1:457582385653:ios:7944cc8c8fecae6293e8bc',
-    messagingSenderId: '457582385653',
-    projectId: 'grocery-app-34eeb',
-    storageBucket: 'grocery-app-34eeb.firebasestorage.app',
-    androidClientId: '457582385653-eql7cdel2fptkmbt9rvaoenvcaf2b33b.apps.googleusercontent.com',
-    iosClientId: '457582385653-hb2o65r9tsgfpechh1r8hrpvv026pni1.apps.googleusercontent.com',
-    iosBundleId: 'com.example.blinkitClone',
-  );
-
-  static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyBkLEKeHFEg9EvYNWzvQexr7lvyTz-ClgA',
-    appId: '1:457582385653:web:5089f614830296b093e8bc',
-    messagingSenderId: '457582385653',
-    projectId: 'grocery-app-34eeb',
-    authDomain: 'grocery-app-34eeb.firebaseapp.com',
-    storageBucket: 'grocery-app-34eeb.firebasestorage.app',
-  );
-
 }

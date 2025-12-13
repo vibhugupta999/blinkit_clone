@@ -7,20 +7,12 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:457582385653:android:d24d18de7942bd4e93e8bc",
+        "mobilesdk_app_id": "1:457582385653:android:95aa2e143530536b93e8bc",
         "android_client_info": {
           "package_name": "com.example.blinkit_clone"
         }
       },
       "oauth_client": [
-        {
-          "client_id": "457582385653-eql7cdel2fptkmbt9rvaoenvcaf2b33b.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.blinkit_clone",
-            "certificate_hash": "dd52bb6ed4f6d1ce536994890bac1620f3fd9edc"
-          }
-        },
         {
           "client_id": "457582385653-jnpjnvir5picvr7tu4nkvd5iv34dkl4s.apps.googleusercontent.com",
           "client_type": 3

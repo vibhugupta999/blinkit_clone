@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
         ),
       ),
       home: StreamBuilder<User?>(
-        stream: AuthServices.userstream,
+        stream: AuthServices.userStream,
         builder: (context, snapshot) {
           return snapshot.hasData && AuthServices.isEmailVerified
               ? const NavigationPage()

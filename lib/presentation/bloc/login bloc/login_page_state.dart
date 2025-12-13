@@ -20,3 +20,9 @@ class SkipLoginState extends LoginPageState {
 }
 
 class ContinueEnabledState extends LoginPageState {}
+
+class LoginPageErrorState extends LoginPageState {
+  final String errorMessage;
+
+  LoginPageErrorState({required this.errorMessage});
+}

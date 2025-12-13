@@ -33,7 +33,20 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return BlocConsumer<LoginPageBloc, LoginPageState>(
       bloc: loginPageBloc,
-      listener: (context, state) {},
+      listener: (context, state) {
+        if (state.runtimeType == LoginPageErrorState) {
+          final tempstate = state as LoginPageErrorState;
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              behavior: SnackBarBehavior.floating,
+              content: Text(tempstate.errorMessage),
+              backgroundColor: Colors.red,
+              duration: Duration(seconds: 10),
+
+            ),
+          );
+        }
+      },
       builder: (context, state) {
         switch (state.runtimeType) {
           case LoginPageLoadingState:
